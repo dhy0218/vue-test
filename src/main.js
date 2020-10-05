@@ -6,13 +6,16 @@ import './plugins/element.js'
 import './assets/css/global.css'
 
 import store from './store'
-
-
+import axios from 'axios'
+import {message} from 'element-ui'
+import {MessageBox} from 'element-ui'
 //设置反向代理，前端请求默认发送到8081/api
-var axios = require('axios')
+//var axios = require('axios')
 axios.defaults.baseURL = 'http://localhost:8081/api'
 //全局注册之后可以在其他组件中通过this.$axios发送数据
-Vue.prototype.$axios = axios
+Vue.prototype.$http = axios
+Vue.prototype.$message = message
+Vue.prototype.$confirm = MessageBox
 Vue.config.productionTip = false
 
 new Vue({

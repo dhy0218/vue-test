@@ -3,7 +3,7 @@
     <!-- 头部区域 -->
     <el-header>
       <div>
-        <span>XXX管理系统</span>
+        <span>DHY的管理系统</span>
       </div>
       <el-button type="info" @click="logout">退出</el-button>
     </el-header>
@@ -72,12 +72,12 @@
           <el-submenu index="3">
             <template slot="title">
               <i class="el-icon-location"></i>
-              <span>导航三</span>
+              <span>商品列表</span>
             </template>
-            <el-menu-item index="3-4-1">
+            <el-menu-item index="/goodslist">
               <template slot="title">
                 <i class="el-icon-menu"></i>
-                <span>导航3.1</span>
+                <span>商品列表</span>
               </template>
             </el-menu-item>
           </el-submenu>

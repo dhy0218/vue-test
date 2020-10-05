@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { Button } from 'element-ui'
 import {Form,FormItem} from 'element-ui'
 import {Input,Container,Header,Aside,Main,Menu,Submenu,MenuItemGroup,MenuItem,
-    Breadcrumb,BreadcrumbItem,Card,Row,Col
+    Breadcrumb,BreadcrumbItem,Card,Row,Col,Table,TableColumn,Pagination,MessageBox,Message
 } from 'element-ui'
 
 Vue.use(Button)
@@ -25,3 +25,7 @@ Vue.use(BreadcrumbItem)
 Vue.use(Card)
 Vue.use(Row)
 Vue.use(Col)
+
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Pagination)

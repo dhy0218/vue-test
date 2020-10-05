@@ -6,6 +6,8 @@ import Home from '../components/home/Home.vue'
 import welcome from '../components/home/welcome.vue'
 import users from '../components/user/users.vue'
 import test from '../components/test/test.vue'
+import goods_list from '../components/goods_list/goodslist.vue'
+import addPage from '../components/goods_list/addPage.vue'
 Vue.use(VueRouter)
 
  
@@ -24,6 +26,8 @@ const router = new VueRouter({
         { path:'/welcome',component:welcome},
         { path:'/users',component:users},
         { path:'/test',component:test},
+        { path:'/addPage',component:addPage},
+        { path:'/goodslist',component:goods_list},
       ],
       meta: {
         requireAuth: true
