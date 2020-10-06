@@ -9,6 +9,8 @@
 
     <!-- 卡片视图区 -->
     <el-card>
+
+
       <el-row :gutter="20">
         <el-col :span="8">
           <el-input placeholder="请输入内容" v-model='message' clearable @clear="getGoodsList">

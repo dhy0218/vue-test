@@ -2,11 +2,14 @@
   <div class="login_container">
     <div class="login_box">
       <!-- 头像区域 -->
-      <div class="avatar_box">
+      <!-- <div class="avatar_box">
         <img src="../assets/logo.png" alt />
-      </div>
+      </div> -->
       <!-- 登录表单区 -->
       <el-form :model="loginForm" :rules="loginformrules" label-width="0px" class="login_form">
+
+        <h3 class="login_title">董航云的小系统</h3>
+
         <!-- 用户名 -->
         <el-form-item prop="username">
           <el-input prefix-icon="el-icon-s-custom" type="text" v-model="loginForm.username"></el-input>
@@ -18,7 +21,9 @@
         <!-- 按钮 -->
         <el-form-item class="btns">
           <el-button type="primary" v-on:click="login">登录</el-button>
+          <el-button type="primary" v-on:click="shirologin">shiro登录</el-button>
           <el-button type="info" v-on:click="test">重置</el-button>
+          <el-button type="info" v-on:click="register">注册</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -33,8 +38,8 @@ export default {
   data() {
     return {
       loginForm: {
-        username: "",
-        password: "",
+        username: "dhy",
+        password: "0218",
       },
       responseResult: [],
       //这是表单的验证规则对象
@@ -54,27 +59,50 @@ export default {
   },
   //onclick方法
    methods: {
+     async shirologin () {
+        
+        const {data:res} =  await this.$http.post('/shirologin',this.loginForm);
+        console.log(res.code);
+
+        if(res.code !== 200)
+        {
+           return this.$message.error("登录失败!请检查您的用户名密码");
+        }
+        this.$message.success("登录成功！");
+        this.$router.replace('/mainindex');
+     },
       test(){
         this.$router.replace({path:'/mainindex'})
       },
-      login () {
+      register(){
+        this.$router.push("/register")
+      },
+      async login () {
         var _this = this
         console.log(this.$store.state)
-        this.$axios
-          .post('/login', {
-            username: this.loginForm.username,
-            password: this.loginForm.password
-          })
-          .then(successResponse => {
-            if (successResponse.data.code === 200) {
-              // var data = this.loginForm
-              _this.$store.commit('login', _this.loginForm)
-              var path = this.$route.query.redirect
-              this.$router.replace({path: path === '/' || path === undefined ? '/mainindex' : path})
-            }
-          })
-          .catch(failResponse => {
-          })
+        const {data:res} =  await this.$http.post('/login',this.loginForm);
+        console.log(res.code);
+
+        if(res.code !== 200)
+        {
+           return this.$message.error("登录失败!请检查您的用户名密码");
+        }
+        this.$message.success("登录成功！");
+        this.$router.replace('/mainindex');
+          // .post('/login', {
+          //   username: this.loginForm.username,
+          //   password: this.loginForm.password
+          // })
+          // .then(successResponse => {
+          //   if (successResponse.data.code === 200) {
+          //     // var data = this.loginForm
+          //     _this.$store.commit('login', _this.loginForm)
+          //     var path = this.$route.query.redirect
+          //     this.$router.replace({path: path === '/' || path === undefined ? '/mainindex' : path})
+          //   }
+          // })
+          // .catch(failResponse => {
+          // })
       }
     }
 };
@@ -96,6 +124,11 @@ export default {
   top: 50%;
   transform: translate(-50%, -50%);
 
+  .login_title {
+    margin: 0px auto 40px auto;
+    text-align: center;
+    color: #505458;
+  }
   .avatar_box {
     height: 130px;
     width: 130px;
@@ -127,4 +160,5 @@ export default {
     box-sizing: border-box;
   }
 }
+
 </style>

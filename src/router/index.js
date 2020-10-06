@@ -8,6 +8,7 @@ import users from '../components/user/users.vue'
 import test from '../components/test/test.vue'
 import goods_list from '../components/goods_list/goodslist.vue'
 import addPage from '../components/goods_list/addPage.vue'
+import register from '../components/register.vue'
 Vue.use(VueRouter)
 
  
@@ -17,6 +18,7 @@ const router = new VueRouter({
     {path:'/',redirect:'/login'},
     {path:'/login',component:Login},
     {path:'/index',component:AppIndex},
+    {path:'/register',component:register},
     {
       path:'/mainindex',
       component:Home,
