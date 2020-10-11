@@ -58,7 +58,10 @@
           <el-tab-pane label="商品参数" name="1">商品参数</el-tab-pane>
           <el-tab-pane label="商品属性" name="2">商品属性</el-tab-pane>
           <el-tab-pane label="商品图片" name="3">商品图片</el-tab-pane>
-          <el-tab-pane label="商品内容" name="4">商品内容</el-tab-pane>
+          <el-tab-pane label="商品内容" name="4">
+            <!-- 富文本编辑器组件 -->
+            <quill-editor v-model = "addForm.goods_introduce"></quill-editor>
+          </el-tab-pane>
         </el-tabs>
       </el-form>
     </el-card>
@@ -74,7 +77,8 @@ export default {
       activeIndex: "0",
       //添加商品的表单数据对象
       addForm: {
-        goods_name:''
+        goods_name:'',
+        goods_introduce:''
       },
       addFormRules: {
         goods_name:[{required:true,message:'请输入商品名称',trigger:'blur'}]

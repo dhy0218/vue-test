@@ -86,12 +86,12 @@
           <el-submenu index="4">
             <template slot="title">
               <i class="el-icon-location"></i>
-              <span>导航四</span>
+              <span>图表</span>
             </template>
-            <el-menu-item index="4-4-1">
+            <el-menu-item index="/echarttest">
               <template slot="title">
                 <i class="el-icon-menu"></i>
-                <span>导航4.1</span>
+                <span>图表</span>
               </template>
             </el-menu-item>
           </el-submenu>

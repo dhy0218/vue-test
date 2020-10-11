@@ -9,6 +9,8 @@ import test from '../components/test/test.vue'
 import goods_list from '../components/goods_list/goodslist.vue'
 import addPage from '../components/goods_list/addPage.vue'
 import register from '../components/register.vue'
+import testecharts from '../components/echarts/echarttest.vue'
+import testchild from '../components/test/testchild.vue'
 Vue.use(VueRouter)
 
  
@@ -30,6 +32,7 @@ const router = new VueRouter({
         { path:'/test',component:test},
         { path:'/addPage',component:addPage},
         { path:'/goodslist',component:goods_list},
+        { path:'/echarttest',component:testecharts},
       ],
       meta: {
         requireAuth: true

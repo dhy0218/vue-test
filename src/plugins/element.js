@@ -3,10 +3,12 @@ import { Button } from 'element-ui'
 import {Form,FormItem} from 'element-ui'
 import {Input,Container,Header,Aside,Main,Menu,Submenu,MenuItemGroup,MenuItem,
     Breadcrumb,BreadcrumbItem,Card,Row,Col,Table,TableColumn,Pagination,MessageBox,Steps,Step,Alert
-    ,Tabs,TabPane
+    ,Tabs,TabPane,scrollbar,
 } from 'element-ui'
 import {Message} from 'element-ui'
-
+import VCharts from 'v-charts'
+    Vue.use(VCharts)
+    Vue.use(scrollbar)
 Vue.prototype.$message = Message
 
 Vue.use(Button)
